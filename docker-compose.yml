@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mongo:6
+    container_name: student-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db/mongo_data:/data/db
+      - ./db/init.js:/docker-entrypoint-initdb.d/init.js
+
+  backend:
+    build: ./backend
+    container_name: student-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
