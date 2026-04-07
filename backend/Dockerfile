@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies
-RUN pip install --no-cache-dir flask pymongo
+RUN pip install --no-cache-dir flask pymongo flask-cors
 
 # Expose port 5000
 EXPOSE 5000
